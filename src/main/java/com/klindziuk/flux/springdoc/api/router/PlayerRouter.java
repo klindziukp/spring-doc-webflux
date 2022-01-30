@@ -20,10 +20,10 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 @Configuration
+@ConditionalOnProperty("com.klindziuk.flux.springdoc.api.router.separate.enabled")
 public class PlayerRouter {
 
   @Bean
-  @ConditionalOnProperty("com.klindziuk.flux.springdoc.api.router.separate.enabled")
   @GetAllPlayersApiInfo
   public RouterFunction<ServerResponse> getAllPlayersRouterFunction(PlayerHandler playerHandler){
     RequestPredicate getPlayersRoute =
